@@ -6,42 +6,47 @@ public class Employee {
     private int employeeID;
     protected double salary;
 
-    // Constructor initializes salary to zero
+   
     public Employee() {
         this.salary = 0.0;
     }
 
-    // Setters
+    // Setters with validation
     public void setFirstName(String firstName) {
+        if (firstName == null || firstName.trim().isEmpty()) {
+            throw new IllegalArgumentException("First name cannot be empty.");
+        }
         this.firstName = firstName;
     }
 
     public void setLastName(String lastName) {
+        if (lastName == null || lastName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Last name cannot be empty.");
+        }
         this.lastName = lastName;
     }
 
     public void setEmployeeID(int employeeID) {
+        if (employeeID <= 0) {
+            throw new IllegalArgumentException("Employee ID must be positive.");
+        }
         this.employeeID = employeeID;
     }
 
-    // Getters
-    public String getFirstName() {
-        return firstName;
+    public void setSalary(double salary) {
+        if (salary < 0) {
+            throw new IllegalArgumentException("Salary cannot be negative.");
+        }
+        this.salary = salary;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
+ 
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
+    public int getEmployeeID() { return employeeID; }
+    public double getSalary() { return salary; }
 
-    public int getEmployeeID() {
-        return employeeID;
-    }
 
-    public double getSalary() {
-        return salary;
-    }
-
-    // Method to print employee summary
     public void employeeSummary() {
         System.out.println("Employee Summary:");
         System.out.println("Name: " + firstName + " " + lastName);

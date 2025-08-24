@@ -3,25 +3,27 @@ package Module1;
 public class Manager extends Employee {
     private String department;
 
-    // Constructor
+  
     public Manager() {
-        super(); // calls Employee constructor
+        super();
     }
 
-    // Setter for department
+    // Setter with validation
     public void setDepartment(String department) {
+        if (department == null || department.trim().isEmpty()) {
+            throw new IllegalArgumentException("Department cannot be empty.");
+        }
         this.department = department;
     }
 
-    // Getter for department
+  
     public String getDepartment() {
         return department;
     }
 
-    // Override employeeSummary to include department
     @Override
     public void employeeSummary() {
-        super.employeeSummary(); // call parent method
+        super.employeeSummary();
         System.out.println("Department: " + department);
     }
 }

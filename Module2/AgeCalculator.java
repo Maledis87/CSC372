@@ -1,4 +1,3 @@
-
 package Module2;
 
 import javax.swing.*;
@@ -6,12 +5,20 @@ import java.awt.*;
 import java.awt.event.*;
 import java.time.*;
 
+/**
+ * A simple Swing-based GUI application to calculate a user's age
+ * based on their birth date input.
+ */
 public class AgeCalculator extends JFrame implements ActionListener {
     private JTextField yearField, monthField, dayField;
     private JButton calculateButton;
     private JLabel resultLabel;
     private JPanel panel;
 
+    /**
+     * Constructs the AgeCalculator GUI window.
+     * Sets up the input fields, button, and result label.
+     */
     public AgeCalculator() {
         setTitle("Age Calculator");
         setSize(300, 200);
@@ -47,6 +54,12 @@ public class AgeCalculator extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    /**
+     * Handles button click events for calculating the age.
+     * Parses the user input, validates it, and displays the age.
+     *
+     * @param e the ActionEvent triggered by the button
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
@@ -64,6 +77,11 @@ public class AgeCalculator extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * Main method. Launches the AgeCalculator application.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         new AgeCalculator();
     }
